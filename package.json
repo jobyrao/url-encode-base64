@@ -1,0 +1,74 @@
+{
+  "name": "url-encode-base64",
+  "version": "1.0.0",
+  "description": "Better than \"encodeURIComponent\" to reduce character overhead",
+  "main": "dist/url-encode-base64.cjs.min.js",
+  "module": "dist/url-encode-base64.esm.min.js",
+  "browser": "dist/url-encode-base64.umd.min.js",
+  "scripts": {
+    "cnpm": "npm i --registry=https://registry.npm.taobao.org",
+    "eslint": "eslint .",
+    "build": "node scripts/build.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "test": "mocha -t 10000 -s 2000 test/*.test.js",
+    "build-test": "npm run build && mocha -t 10000 -s 2000 test/*.test.js",
+    "test-coverage": "npm run build && nyc npm run test",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "keywords": [
+    "base64",
+    "base64url",
+    "url encode",
+    "url decode",
+    "base64 encode",
+    "base64 decode"
+  ],
+  "author": "jobyrao<raojianb@mail2.sysu.edu.cn>",
+  "homepage": "https://github.com/jobyrao/url-encode-base64#readme",
+  "bugs": {
+    "url": "https://github.com/jobyrao/url-encode-base64/issues",
+    "email": "raojianb@mail2.sysu.edu.cn"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "chai": "^4.2.0",
+    "codecov": "^3.8.3",
+    "conventional-changelog-cli": "^2.1.1",
+    "eslint": "^8.21.0",
+    "eslint-config-google": "^0.14.0",
+    "husky": "^4.3.0",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1",
+    "rollup": "^2.77.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "terser": "^4.4.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "types": "./types/index.d.ts",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jobyrao/url-encode-base64.git"
+  }
+}
